@@ -1,0 +1,42 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: min-content;
+  margin-left: 66px;
+}
+
+.menu::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--base-font);
+}
+
+.main-nav ul {
+  display: flex;
+}
+
+.main-nav a {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 29px;
+  text-transform: uppercase;
+  padding: 32px 45px;
+  transition: background-color var(--base-transition);
+}
+
+.main-nav a.active {
+  font-weight: 700;
+}
+
+.main-nav a:hover {
+  background-color: #f3f4f5;
+}

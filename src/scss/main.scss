@@ -1,0 +1,19 @@
+// базовые подключения
+@import "vars";
+@import "settings";
+
+// подключения компонентов страницы
+@import "./components/header";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-gap: 0 30px;
+  margin: 0 68px;
+}
+
+.header,
+.content,
+.footer {
+  grid-column: col-start / span 12;
+}
