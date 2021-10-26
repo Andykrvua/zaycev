@@ -1,5 +1,225 @@
 // если вы хотите использовать sass-переменные - удалите root
+
+// max-width 2000
+// max-width 1000
+// max-width 500
+//
+// min-width 500
+// min-width 1000
+// min-width 2000
 :root {
   --base-font: #414d58;
-  --base-transition: 0.3s;
+  --light-grey-bg: #f3f4f5;
+  --light-grey-bg-stroke: #eef0f1;
+  --med-grey: #9da4aa;
+  --med-grey-bg: #fafbfc;
+  --accent: #12293b;
+  --yelow-liquid: #ffff0d;
+  --red-white: #e65252;
+  --numbers-font-stroke-color: #9da4aa;
+  --blue-med: #134a7d;
+  --table-border: #e9ebed;
+
+  --line-height: 134%;
+
+  --header-menu-fs: 22px;
+
+  --base-transition: 0.4s;
+  --cubic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --page-block-border: #f2f5f7;
+  --focus: 0 0 0 5px rgb(130 138 145 / 50%);
+  --shadow: 0px 6px 12px rgba(210, 215, 219, 0.2);
 }
+
+// fs и lh меняем пропрционально
+// больше 1680 = макет 1920
+// больше 1366 = макет 1920-20%
+// больше 720 = макет 720
+
+// отступы 1366 и больше 105px
+// 500 и больше 75px
+// 320 и больше 50px
+
+// больше 320
+@media (min-width: 320px) {
+  :root {
+    --land-page-p-fs: 16px;
+
+    --fisrt-screen-title-fs: 24px;
+
+    --grid-margin: 0 8px;
+    --grid-margin-comp: 0 -8px;
+
+    --grid-margin-header-comp: 8px;
+
+    --stroke-font-fs: 25px;
+
+    --stroke-font-stroke: 1px;
+    --stroke-font-before-w: 10px;
+    --stroke-font-before-h: 32px;
+
+    --block-margin-left: 25px;
+    --block-margin-left-before: -25px;
+
+    --numbers-font-fs: 22px;
+
+    --numbers-font-stroke: 1px;
+
+    --btn-fs: 20px;
+
+    --btn-padding: 8px 35px 8px;
+
+    --modal-gap: 16px;
+
+    --modal-padding: 20px;
+
+    --land-page-section-margin: 50px;
+  }
+}
+
+// больше 321
+@media (min-width: 321px) {
+  :root {
+    --grid-margin: 0 20px;
+    --grid-margin-comp: 0 -20px;
+
+    --grid-margin-header-comp: 20px;
+
+    --modal-gap: 40px;
+  }
+}
+
+// больше 500
+@media (min-width: 500px) {
+  :root {
+    --grid-margin: 0 50px;
+    --grid-margin-comp: 0 -50px;
+
+    --grid-margin-header-comp: 50px;
+
+    --land-page-section-margin: 75px;
+  }
+}
+
+// больше 720
+@media (min-width: 720px) {
+  :root {
+    --main-page-footer-menu-fs: 18px;
+
+    --fisrt-screen-title-fs: 40px;
+
+    --land-page-p-fs: 18px;
+
+    --land-page-bg-fs: 100px;
+
+    --stroke-font-fs: 56px;
+
+    --stroke-font-stroke: 2px;
+    --stroke-font-before-w: 15px;
+    --stroke-font-before-h: 60px;
+
+    --btn-fs: 30px;
+
+    --btn-padding: 12px 55px 12px;
+
+    --block-margin-left: 40px;
+    --block-margin-left-before: -40px;
+
+    --numbers-font-fs: 40px;
+
+    --numbers-font-stroke: 2px;
+
+    --modal-gap: 200px;
+
+    --modal-padding: 80px;
+  }
+}
+
+// больше 1024
+@media (min-width: 1024px) {
+  :root {
+    --main-page-footer-menu-fs: 34px;
+
+    --grid-margin: 0 68px;
+    --grid-margin-comp: 0 -68px;
+    --grid-margin-header-comp: 68px;
+
+    --stroke-font-before-w: 17px;
+    --stroke-font-before-h: 70px;
+  }
+}
+
+// больше 1366
+@media (min-width: 1366px) {
+  :root {
+    --main-page-footer-menu-fs: 34px;
+
+    --fisrt-screen-title-fs: 45px;
+
+    --land-page-p-fs: 21px;
+
+    --stroke-font-fs: 64px;
+
+    --stroke-font-before-w: 18px;
+    --stroke-font-before-h: 78px;
+
+    --block-margin-left: 120px;
+    --block-margin-left-before: -120px;
+
+    --land-page-section-margin: 105px;
+  }
+}
+
+// больше 1680
+@media (min-width: 1680px) {
+  :root {
+    --main-page-footer-menu-fs: 42px;
+
+    --fisrt-screen-title-fs: 56px;
+
+    --land-page-p-fs: 26px;
+
+    --land-page-bg-fs: 140px;
+
+    --stroke-font-fs: 80px;
+
+    --stroke-font-before-w: 18px;
+    --stroke-font-before-h: 98px;
+
+    --btn-fs: 42px;
+  }
+}
+
+/*_________________________________________________________________________________*/
+//от меньшего к большему звучит как 500 и больше
+// @media (min-width: 500px) {
+//   body {
+//     background-color: tomato;
+//   }
+// }
+// @media (min-width: 1000px) {
+//   body {
+//     background-color: wheat;
+//   }
+// }
+// @media (min-width: 1500px) {
+//   body {
+//     background-color: black;
+//   }
+// }
+//или от большего к меньшему звучит как 1500 и меньше
+// @media (max-width: 1500px) {
+//   body {
+//     background-color: black;
+//   }
+// }
+// @media (max-width: 1000px) {
+//   body {
+//     background-color: wheat;
+//   }
+// }
+// @media (max-width: 500px) {
+//   body {
+//     background-color: tomato;
+//   }
+// }

@@ -122,7 +122,7 @@ const images = () => {
 };
 
 const htmlInclude = () => {
-  return src(["./src/*.html"])
+  return src(["./src/**/*.html"])
     .pipe(
       fileInclude({
         prefix: "@",
@@ -142,7 +142,7 @@ const watchFiles = () => {
 
   watch("./src/scss/**/*.scss", styles);
   watch("./src/js/**/*.js", scripts);
-  watch("./src/partials/*.html", htmlInclude);
+  watch("./src/partials/**/*.html", htmlInclude);
   watch("./src/*.html", htmlInclude);
   watch("./src/resources/**", resources);
   watch("./src/img/*.{jpg,jpeg,png,svg,webp}", images);

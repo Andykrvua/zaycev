@@ -1,0 +1,242 @@
+.reviews__block {
+  margin: var(--land-page-section-margin) 0;
+
+  & .land__title {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      width: var(--stroke-font-before-h);
+      height: var(--stroke-font-before-w);
+      background-color: var(--accent);
+    }
+  }
+}
+
+.reviews__cards {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: var(--land-page-section-margin);
+
+  & .reviews__cards--item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 320px;
+    height: 130px;
+    padding: 24px 22px;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey-bg);
+    background-color: var(--med-grey-bg);
+    box-shadow: var(--shadow);
+  }
+
+  & .reviews__item--stars {
+    display: flex;
+  }
+
+  & .reviews__item--star {
+    width: 22px;
+    height: 22px;
+    background-image: url(./../img/star.svg);
+  }
+
+  & .reviews__item--star--half {
+    width: 11px;
+    height: 22px;
+    background-image: url(./../img/star.svg);
+  }
+
+  & .reviews__item--rating {
+    justify-self: end;
+    font-size: 26px;
+    line-height: 26px;
+    font-weight: 700;
+    color: var(--blue-med);
+  }
+
+  & .reviews__item--logo {
+    position: relative;
+    align-self: end;
+
+    & img {
+      position: absolute;
+      bottom: -2px;
+      left: 3px;
+    }
+  }
+
+  & .reviews__item--count {
+    justify-self: end;
+    align-self: end;
+    font-size: 18px;
+    text-decoration: underline;
+  }
+}
+
+// меньше 1366
+@media (max-width: 1366px) {
+  .reviews__cards {
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    & .reviews__cards--item + .reviews__cards--item {
+      margin-top: 50px;
+    }
+
+    & .reviews__cards--item:nth-child(1) {
+      grid-row: 1;
+      justify-self: start;
+    }
+    & .reviews__cards--item:nth-child(2) {
+      grid-row: 2;
+      justify-self: end;
+    }
+    & .reviews__cards--item:nth-child(3) {
+      grid-row: 3;
+      justify-self: start;
+    }
+  }
+}
+
+// меньше 720
+@media (max-width: 720px) {
+  .reviews__block {
+    & .land__title {
+      &::before {
+        bottom: -10px;
+      }
+    }
+  }
+}
+
+// меньше 500
+@media (max-width: 500px) {
+  .reviews__block {
+    & .reviews__cards {
+      & .reviews__cards--item + .reviews__cards--item {
+        margin-top: 30px;
+      }
+
+      & .reviews__cards--item {
+        justify-self: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .reviews__cards {
+    & .reviews__cards--item {
+      width: 280px;
+    }
+  }
+}
+
+.reviews__block {
+  .slider__custom-wrapper {
+    margin-top: var(--land-page-section-margin);
+  }
+
+  .slider__custom-wrapper {
+    position: relative;
+    text-align: center;
+
+    & .swiper {
+      max-width: 600px;
+
+      & .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+      }
+    }
+  }
+}
+
+.reviews__block {
+  .btn__prev,
+  .btn__next {
+    position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    z-index: 2;
+  }
+
+  .btn__prev svg,
+  .btn__next svg {
+    color: var(--base-font);
+    transition: color var(--base-transition);
+  }
+
+  .btn__prev:hover svg,
+  .btn__next:hover svg,
+  .btn__prev:active svg,
+  .btn__next:active svg {
+    color: var(--red-white);
+  }
+
+  .btn__prev:active,
+  .btn__next:active {
+    box-shadow: none;
+    border-radius: none;
+  }
+
+  // больше 834
+  @media (min-width: 834px) {
+    .btn__prev {
+      transform: translate(-50%, -50%) rotateY(180deg);
+      left: calc(50% - 450px);
+    }
+
+    .btn__next {
+      transform: translate(50%, -50%);
+      right: calc(50% - 450px);
+    }
+  }
+
+  // меньше 1366
+  @media (max-width: 1366px) {
+    .btn__prev {
+      transform: translateY(-50%) rotateY(180deg);
+      left: 0;
+    }
+
+    .btn__next {
+      transform: translateY(-50%);
+      right: 0;
+    }
+  }
+
+  // меньше 834
+  @media (max-width: 834px) {
+    .btn__prev,
+    .btn__next {
+      position: relative;
+      margin-top: 15px;
+    }
+
+    .btn__prev {
+      top: auto;
+      left: auto;
+      transform: translateY(0) rotateY(180deg);
+      margin-right: 25px;
+    }
+
+    .btn__next {
+      transform: translateY(0);
+      top: auto;
+      right: auto;
+      margin-left: 25px;
+    }
+  }
+}

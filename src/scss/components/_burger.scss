@@ -1,0 +1,63 @@
+@media (min-width: 1152px) {
+  .header__menu-btn {
+    display: none;
+  }
+}
+
+//меньше 1152 тут прячем меню?
+@media (max-width: 1152px) {
+  .header__menu-btn {
+    position: relative;
+    display: flex;
+    justify-self: end;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all var(--base-transition) var(--cubic);
+  }
+
+  .header__menu-btn-burger {
+    display: block;
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--base-font);
+    transition: all var(--base-transition) var(--cubic);
+  }
+
+  .header__menu-btn-burger::before,
+  .header__menu-btn-burger::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--base-font);
+    transition: all var(--base-transition) var(--cubic);
+  }
+
+  .header__menu-btn-burger::before {
+    transform: translateY(-8px);
+  }
+
+  .header__menu-btn-burger::after {
+    transform: translateY(8px);
+  }
+
+  .header__menu-btn.open .header__menu-btn-burger {
+    transform: translateX(-50px);
+    background: transparent;
+  }
+
+  .header__menu-btn.open .header__menu-btn-burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+
+  .header__menu-btn.open .header__menu-btn-burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+}

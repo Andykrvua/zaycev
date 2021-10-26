@@ -11,35 +11,21 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
 
-  <body>
+  <body class="main-page">
     <div class="wrapper">
-      <header class="header">
-        <div class="logo">
-          <img src="./img/logo.webp" width="164" height="188" alt="logo" />
-        </div>
-        <div class="menu">
-          <nav class="main-nav">
-            <ul>
-              <li><a href="" class="active">Главная</a></li>
-              <li><a href="">Сто зайцев</a></li>
-              <li><a href="">Блог</a></li>
-              <li><a href="">Схемы</a></li>
-            </ul>
-          </nav>
-          <div class="menu2">1111</div>
-        </div>
-      </header>
+      @include('partials/header.html')
 
       <main class="content">
-        <h1>Main article area</h1>
-        <p>
-          In this layout, we display the areas in source order for any screen
-          less that 500 pixels wide. We go to a two column layout, and then to a
-          three column layout by redefining the grid, and the placement of items
-          on the grid.
-        </p>
+        @include('partials/main-page/1_first-screen.html')
+        @include('partials/main-page/2_history.html')
+        @include('partials/main-page/3_certificates.html')
+        @include('partials/main-page/4_sto.html')
+        @include('partials/main-page/5_youtube.html')
+        @include('partials/main-page/6_brands.html')
+        @include('partials/main-page/7_blog.html')
       </main>
-      <footer class="footer">The footer</footer>
+
+      @include('partials/main-page/footer_main-page.html')
     </div>
     <script src="js/vendor.js"></script>
     <script src="js/main.js"></script>

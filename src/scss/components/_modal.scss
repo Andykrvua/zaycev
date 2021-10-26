@@ -1,0 +1,211 @@
+.modal__opened {
+  position: fixed;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.jsmodal {
+  position: fixed;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  visibility: hidden;
+  pointer-events: none;
+  transition: background var(--base-transition);
+
+  &--overlay,
+  __window {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &--overlay {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  &__window {
+    margin: 50px 0;
+    transform: scale(0);
+    transform-origin: top;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: transform var(--base-transition) var(--cubic);
+  }
+}
+
+.jsmodal.open .jsmodal--overlay,
+.jsmodal.open .jsmodal__window,
+.jsmodal.hiding .jsmodal--overlay,
+.jsmodal.hiding .jsmodal__window {
+  opacity: 1;
+  z-index: 1000;
+}
+
+.jsmodal.open .jsmodal--overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.jsmodal.open .jsmodal__window {
+  transform: scale(1);
+}
+
+.jsmodal.open,
+.jsmodal.hiding {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.jsmodal__header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 70px var(--modal-padding) 0;
+
+  &-title {
+    font-size: var(--header-menu-fs);
+    // line-height: var(--header-menu-lh);
+    line-height: var(--line-height);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &--close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    margin-right: 15px;
+    margin-top: 15px;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 30px;
+      height: 3px;
+      border-radius: 3px;
+      background: var(--base-font);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+.jsmodal__content {
+  padding: 0 var(--modal-padding);
+
+  & .cooperation {
+    & div {
+      position: relative;
+      padding-top: 54px;
+    }
+
+    label {
+      position: absolute;
+      left: 0;
+      padding: 15px 25px;
+      color: var(--med-grey);
+      font-size: 16px;
+      // line-height: 150%;
+      line-height: var(--line-height);
+      transition: transform var(--base-transition);
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 25px;
+      border: 1px solid var(--med-grey);
+      font-size: 16px;
+      // line-height: 150%;
+      line-height: var(--line-height);
+      color: var(--base-font);
+    }
+
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label {
+      transform: translateY(-54px);
+    }
+
+    textarea {
+      width: 100%;
+      padding: 15px 25px;
+      border: 1px solid var(--med-grey);
+      color: var(--base-font);
+      font-size: 16px;
+      // line-height: 150%;
+      line-height: var(--line-height);
+    }
+
+    textarea:focus ~ label,
+    textarea:not(:placeholder-shown) ~ label {
+      transform: translateY(-54px);
+    }
+
+    .err_mail.show,
+    .err_message.show {
+      color: var(--red-white);
+    }
+  }
+}
+
+.jsmodal__footer {
+  display: flex;
+  justify-content: center;
+  padding: 50px var(--modal-padding) 60px;
+}
+
+.jsmodal__btn--submit {
+  display: inline-block;
+  padding: var(--btn-padding);
+  border: 3px solid var(--base-font);
+  font-size: 28px;
+  color: var(--base-font);
+}
+
+// больше 1680
+@media (min-width: 1680px) {
+  .jsmodal__window {
+    width: 100%;
+  }
+}
+
+// меньше 1680
+@media (max-width: 1680px) {
+  .jsmodal__window {
+    width: calc(100% - var(--modal-gap));
+  }
+}
+
+// меньше 720
+@media (max-width: 720px) {
+  .jsmodal__btn--submit {
+    font-size: 20px;
+  }
+}

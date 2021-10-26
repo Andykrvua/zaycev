@@ -1,19 +1,165 @@
-// базовые подключения
+/* --------------- Base includes --------------- */
 @import "vars";
 @import "settings";
+@import "./components/_modal";
 
-// подключения компонентов страницы
-@import "./components/header";
-
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(12, [col-start] 1fr);
-  grid-gap: 0 30px;
-  margin: 0 68px;
+html {
+  height: 100%;
 }
 
-.header,
-.content,
-.footer {
-  grid-column: col-start / span 12;
+body {
+  height: 100%;
+  margin: var(--grid-margin);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+  //dynamic header
+  margin-top: 153px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    margin-top: 110px;
+  }
+}
+
+@media (max-width: 500px) {
+  .content {
+    margin-top: 92px;
+  }
+}
+
+footer {
+  flex: 0 0 auto;
+}
+
+/* --------------- Page components --------------- */
+@import "./components/header";
+
+/* --------------- Critical CSS --------------- */
+
+// .header,
+// .content,
+// .footer,
+// .footer__main-page {
+//   grid-column: col-start / span 12;
+// }
+
+/* --------------- Main page components --------------- */
+@import "./components/main-page/first-screen";
+@import "./components/main-page/history";
+@import "./components/main-page/certificates";
+@import "./components/main-page/sto";
+@import "./components/main-page/youtube";
+@import "./components/main-page/brands";
+@import "./components/main-page/blog";
+@import "./components/main-page/footer_main-page";
+
+/* --------------- Sto zaycev page components --------------- */
+@import "./components/sto-zaycev/first-screen";
+@import "./components/sto-zaycev/icons";
+@import "./components/sto-zaycev/maps";
+@import "./components/sto-zaycev/price";
+@import "./components/sto-zaycev/portfolio";
+@import "./components/sto-zaycev/benefits";
+@import "./components/sto-zaycev/reviews";
+@import "./components/sto-zaycev/proposal";
+@import "./components/sto-zaycev/footer-map";
+
+/* --------------- Landing page block title (H2) --------------- */
+.land__title {
+  font-size: var(--stroke-font-fs);
+  font-weight: 900;
+  // line-height: var(--stroke-font-lh);
+  line-height: var(--line-height);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.land__title--white {
+  -webkit-text-stroke-width: var(--stroke-font-stroke);
+  -webkit-text-stroke-color: var(--base-font);
+  color: transparent;
+}
+
+.land__title--black {
+  color: #fff;
+}
+
+p {
+  font-size: var(--land-page-p-fs);
+  // line-height: var(--land-page-p-lh);
+  line-height: var(--line-height);
+}
+
+.btn,
+.link-btn {
+  text-transform: uppercase;
+  line-height: var(--line-height);
+}
+/* --------------- Btn/link effects --------------- */
+
+.hover__btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  background: 0;
+  transition: color var(--base-transition) linear;
+}
+
+.hover__btn:hover,
+.hover__btn:focus {
+  color: #fff !important;
+}
+
+.hover__btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--accent);
+  transform: scale(1, 0);
+  transform-origin: bottom;
+  transition: transform var(--base-transition) ease;
+}
+
+.hover__btn:hover::after,
+.hover__btn:focus::after {
+  transform: scale(1, 1);
+}
+
+/* --------------- Focus/active --------------- */
+
+input:focus,
+textarea:focus,
+button:focus,
+a:focus {
+  outline: none;
+}
+
+input:focus-visible,
+input.focus-visible,
+textarea:focus-visible,
+textarea.focus-visible,
+button:focus-visible,
+button.focus-visible,
+a:focus-visible,
+a.focus-visible,
+button:active,
+a:active {
+  box-shadow: var(--focus);
+  border-radius: 4px;
+}
+
+/* --------------- Disable tap highlight (not use) --------------- */
+.no_highlights {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }

@@ -1,0 +1,238 @@
+.maps__block {
+  margin: var(--grid-margin-comp);
+  border-top: solid 1px var(--page-block-border);
+  border-bottom: solid 1px var(--page-block-border);
+  background-color: var(--med-grey-bg);
+
+  &__inner {
+    margin: var(--grid-margin);
+    padding-top: var(--land-page-section-margin);
+
+    & .land__title {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -20px;
+        width: var(--stroke-font-before-h);
+        height: var(--stroke-font-before-w);
+        background-color: var(--accent);
+      }
+    }
+  }
+
+  & .maps__iframe {
+    margin-top: 50px;
+    font-size: 0;
+  }
+}
+
+.maps__block__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 75px;
+  margin-top: 50px;
+
+  &--text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    grid-column: 1;
+
+    & .warning {
+      position: relative;
+      padding-left: 25px;
+      font-size: 18px;
+
+      & a {
+        text-decoration: underline;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 4px;
+        left: 0;
+        background-image: url(../img/warning.svg);
+      }
+    }
+  }
+
+  &--table {
+    grid-column: 2;
+    box-shadow: var(--shadow);
+
+    & .table__item {
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      grid-template-rows: auto;
+      padding: 45px 40px;
+      border: 1px solid var(--table-border);
+      border-bottom: none;
+      background-color: #fff;
+      transition: background-color var(--base-transition);
+    }
+
+    & .table__item:hover {
+      background-color: #fafafa;
+    }
+
+    & .table__item:last-child {
+      border-bottom: 1px solid var(--table-border);
+    }
+
+    & .table__item p {
+      grid-column: 2;
+      grid-row: 1;
+      font-size: calc(var(--land-page-p-fs) - 2px);
+    }
+
+    & .table__item p:last-child {
+      grid-row: 2;
+      font-size: calc(var(--land-page-p-fs) - 2px);
+    }
+  }
+}
+
+.table__item {
+  & .maps__item__count {
+    display: flex;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1 / 3;
+    font-size: var(--numbers-font-fs);
+    font-weight: 900;
+    padding-right: 25px;
+    letter-spacing: 0.05em;
+    -webkit-text-stroke-width: var(--numbers-font-stroke);
+    -webkit-text-stroke-color: var(--med-grey);
+    color: transparent;
+
+    & svg {
+      margin-top: 5px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.table__item:nth-child(1) .maps__item__count .svg__map {
+  fill: #f97575;
+}
+
+.table__item:nth-child(2) .maps__item__count .svg__map {
+  fill: #5a609d;
+}
+
+.table__item:nth-child(3) .maps__item__count .svg__map {
+  fill: #349cd4;
+}
+
+.table__item:nth-child(4) .maps__item__count .svg__map {
+  fill: #f1c44b;
+}
+
+// 1680 и меньше
+@media (max-width: 1680px) {
+  .maps__block__content {
+    &--table {
+      & .table__item {
+        padding: 30px 30px 25px 40px;
+      }
+    }
+  }
+}
+
+// 1366 и меньше
+@media (max-width: 1366px) {
+  .maps__block__content {
+    grid-gap: 50px;
+
+    &--text {
+      & .warning {
+        font-size: 14px;
+      }
+    }
+
+    &--table {
+      & .table__item {
+        padding: 30px 25px 30px 35px;
+      }
+    }
+  }
+}
+
+// 1024 и меньше
+@media (max-width: 1024px) {
+  .maps__block__content {
+    grid-template-columns: 1fr;
+    grid-gap: 25px;
+
+    &--text > p {
+      margin-bottom: 25px;
+    }
+
+    &--table {
+      grid-column: 1;
+    }
+  }
+}
+
+// 720 и меньше
+@media (max-width: 720px) {
+  .maps__block {
+    & .land__title {
+      &::before {
+        bottom: -10px;
+      }
+    }
+
+    & .maps__iframe {
+      margin-top: 25px;
+    }
+  }
+
+  .maps__block__content {
+    grid-gap: 0;
+
+    &--text {
+      & .warning {
+        font-size: 12px;
+      }
+    }
+
+    &--table {
+      & .table__item {
+        padding: 20px 15px 20px 25px;
+      }
+    }
+  }
+
+  .table__item {
+    & .maps__item__count {
+      padding-right: 15px;
+
+      & svg {
+        width: 14px;
+        height: 20px;
+        margin-top: 1px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+// 360 и меньше
+@media (max-width: 360px) {
+  .maps__block__content {
+    &--table {
+      & .table__item {
+        padding: 10px;
+      }
+    }
+  }
+}

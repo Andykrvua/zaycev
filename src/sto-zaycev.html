@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#111111" />
+    <title>New site</title>
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body class="sto-zaycev">
+    <div class="wrapper">
+      @include('partials/header.html')
+
+      <main class="content">
+        @include('partials/sto-zaycev/1_first-screen.html')
+        @include('partials/sto-zaycev/2_icons.html')
+        @include('partials/sto-zaycev/3_maps.html')
+        @include('partials/sto-zaycev/4_price.html')
+        @include('partials/sto-zaycev/5_portfolio.html')
+        @include('partials/sto-zaycev/6_benefits.html')
+        @include('partials/sto-zaycev/7_reviews.html')
+        @include('partials/sto-zaycev/8_proposal.html')
+        @include('partials/sto-zaycev/9_footer-map.html')
+      </main>
+
+      @include('partials/main-page/footer_main-page.html')
+    </div>
+    <script src="js/vendor.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

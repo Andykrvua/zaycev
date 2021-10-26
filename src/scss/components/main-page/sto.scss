@@ -1,0 +1,107 @@
+.sto {
+  margin: var(--grid-margin-comp);
+  margin-top: var(--land-page-section-margin);
+  background-image: url(./../img/sto_helper.jpg);
+  background-color: #09141d;
+  background-position: center;
+  background-repeat: repeat;
+  overflow: hidden;
+
+  &__helper {
+    position: relative;
+    background: url(./../img/sto.jpg) no-repeat center right;
+  }
+
+  &__inner {
+    margin: var(--grid-margin);
+    padding: 140px 0;
+
+    & .land__title {
+      position: relative;
+      margin-left: var(--block-margin-left);
+      margin-bottom: 80px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: var(--block-margin-left-before);
+        top: 50%;
+        transform: translateY(-50%);
+        width: var(--stroke-font-before-w);
+        height: var(--stroke-font-before-h);
+        background-color: #fff;
+      }
+    }
+
+    & p {
+      max-width: 770px;
+      margin-left: var(--block-margin-left);
+      color: #fff;
+    }
+
+    & p + p {
+      margin-top: 35px;
+    }
+
+    & a {
+      margin-top: 140px;
+      margin-left: var(--block-margin-left);
+    }
+
+    & .link-btn {
+      display: inline-block;
+      padding: var(--btn-padding);
+      border: 3px solid var(--yelow-liquid);
+      font-size: var(--btn-fs);
+      // line-height: var(--btn-lh);
+      color: var(--yelow-liquid);
+    }
+  }
+}
+
+// больше 1366
+@media (min-width: 1366px) {
+  .sto__helper::before {
+    content: url(./../img/sto__stroke.svg);
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    transform: translateY(-50%);
+  }
+}
+
+// меньше 720
+@media (max-width: 720px) {
+  .sto {
+    &__inner {
+      padding: var(--land-page-section-margin) 0;
+
+      & .land__title {
+        margin-bottom: 65px;
+      }
+
+      & a {
+        margin-top: 65px;
+      }
+    }
+  }
+}
+
+// меньше 560
+@media (max-width: 560px) {
+  .sto {
+    &__inner {
+      & .land__title {
+        margin-bottom: 40px;
+      }
+
+      & p + p {
+        margin-top: 20px;
+      }
+
+      & a {
+        margin-top: 40px;
+      }
+    }
+  }
+}

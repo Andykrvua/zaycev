@@ -1,0 +1,226 @@
+.price__block {
+  padding: var(--land-page-section-margin) 0;
+
+  & .land__title {
+    position: relative;
+    margin-bottom: 50px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      width: var(--stroke-font-before-h);
+      height: var(--stroke-font-before-w);
+      background-color: var(--accent);
+    }
+  }
+
+  & > p {
+    padding-left: 50%;
+  }
+
+  &--title {
+    font-size: var(--fisrt-screen-title-fs);
+    line-height: var(--line-height);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin: var(--land-page-section-margin) 0;
+  }
+}
+
+.price__block__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 50px;
+
+  .price__block__content--left {
+    grid-column: 1;
+    margin-left: var(--land-page-section-margin);
+  }
+
+  .price__block__content--right {
+    grid-column: 2;
+    margin-right: var(--land-page-section-margin);
+  }
+}
+
+@import "./../_accordion";
+
+.accordion + .accordion {
+  margin-top: 50px;
+}
+
+.accordion {
+  box-shadow: var(--shadow);
+
+  & .accordion__control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 50px;
+    border: 1px solid var(--light-grey-bg-stroke);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  & .accordion__title {
+    text-align: left;
+    font-size: var(--land-page-p-fs);
+    line-height: var(--line-height);
+    font-weight: 700;
+  }
+
+  & .accordion__icon {
+    min-width: 50px;
+    text-align: right;
+  }
+
+  & .accordion__icon svg {
+    width: 9px;
+    height: 6px;
+    transition: transform var(--accordion-time);
+  }
+
+  & .accordion__content {
+    z-index: 1;
+  }
+
+  & .accordion__content--description,
+  .accordion__content--item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border: 1px solid var(--light-grey-bg-stroke);
+  }
+
+  & .accordion__content--description {
+    font-weight: 700;
+    border-top: none;
+    border-bottom: none;
+    background-color: var(--light-grey-bg);
+  }
+
+  & .accordion__content--item {
+    background-color: #fff;
+    border-bottom: none;
+    transition: background-color var(--base-transition);
+  }
+
+  & .accordion__content--item:last-child {
+    border-bottom: 1px solid var(--light-grey-bg-stroke);
+  }
+
+  & .accordion__content--item:nth-child(2n + 1) {
+    background-color: var(--med-grey-bg);
+  }
+
+  & .accordion__content--item:hover {
+    background-color: #f4f4f4;
+  }
+
+  & .accordion__content--description--right,
+  .accordion__content--item--cost {
+    min-width: 110px;
+    text-align: right;
+  }
+
+  &.is-open .accordion__icon svg {
+    transform: rotateX(180deg);
+  }
+
+  &.is-open .accordion__content {
+    transform: scaleY(1);
+    position: relative;
+  }
+}
+
+// 1366 и меньше
+@media (max-width: 1366px) {
+  .price__block__content {
+    grid-template-columns: 1fr;
+
+    .price__block__content--left {
+      grid-column: 1;
+      margin: 0 var(--land-page-section-margin);
+      margin-bottom: 50px;
+    }
+
+    .price__block__content--right {
+      grid-column: 1;
+      margin: 0 var(--land-page-section-margin);
+    }
+  }
+}
+
+// 720 и меньше
+@media (max-width: 720px) {
+  .price__block {
+    & .land__title {
+      &::before {
+        bottom: -10px;
+      }
+    }
+
+    & > p {
+      padding-left: 0;
+    }
+  }
+
+  .price__block__content {
+    & .accordion__content--item--cost {
+      min-width: 60px;
+    }
+
+    .price__block__content--left {
+      margin: 0;
+      margin-bottom: 50px;
+    }
+
+    .price__block__content--right {
+      margin: 0;
+    }
+  }
+}
+
+// 500 и меньше
+@media (max-width: 500px) {
+  .price__block {
+    .accordion + .accordion {
+      margin-top: 25px;
+    }
+  }
+
+  .price__block__content {
+    .price__block__content--left {
+      margin-bottom: 25px;
+    }
+
+    & .accordion__control {
+      padding: 25px 30px;
+    }
+
+    & .accordion__content--description,
+    .accordion__content--item {
+      padding: 20px 30px;
+    }
+  }
+}
+
+// 375 и меньше
+@media (max-width: 375px) {
+  .price__block__content {
+    & .accordion__control {
+      padding: 25px 25px;
+    }
+
+    & .accordion__content--description,
+    .accordion__content--item {
+      font-size: 14px;
+      padding: 20px 25px;
+    }
+  }
+}

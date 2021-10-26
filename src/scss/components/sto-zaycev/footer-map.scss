@@ -1,0 +1,70 @@
+.footer__map {
+  margin-top: var(--land-page-section-margin);
+
+  & h3 {
+    font-size: var(--fisrt-screen-title-fs);
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  & address {
+    margin: 25px 0 10px;
+    font-size: var(--land-page-p-fs);
+    font-style: normal;
+  }
+
+  & p {
+    display: inline-flex;
+  }
+
+  & p:not(.warning) {
+    margin-right: 50px;
+    margin-bottom: 10px;
+  }
+
+  & .warning {
+    position: relative;
+    max-width: 600px;
+    padding-left: 25px;
+    font-size: 18px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      top: 4px;
+      left: 0;
+      background-image: url(../img/warning.svg);
+    }
+  }
+
+  & .footer__map__iframe {
+    margin: var(--grid-margin-comp);
+    margin-top: 50px;
+    font-size: 0;
+  }
+}
+
+// 1366 и меньше
+@media (max-width: 1366px) {
+  .footer__map {
+    & .warning {
+      font-size: 14px;
+    }
+  }
+}
+
+// 720 и меньше
+@media (max-width: 720px) {
+  .footer__map {
+    & .warning {
+      font-size: 12px;
+    }
+
+    & .footer__map__iframe {
+      margin-top: 25px;
+    }
+  }
+}

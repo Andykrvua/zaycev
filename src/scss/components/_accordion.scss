@@ -1,0 +1,24 @@
+.accordion {
+  --accordion-time: 0.4s;
+  position: relative;
+
+  & .accordion__control {
+    width: 100%;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  & .accordion__content {
+    width: 100%;
+    position: absolute;
+    transform-origin: top;
+    transform: scaleY(0);
+    overflow: hidden;
+    transition: transform var(--accordion-time);
+  }
+
+  &.is-open .accordion__content {
+    transform: scaleY(1);
+    position: relative;
+  }
+}
